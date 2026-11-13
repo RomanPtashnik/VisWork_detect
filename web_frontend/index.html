@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition System – Администрирование</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Система распознавания лиц</h1>
+
+        <!-- Блок авторизации -->
+        <div id="authSection" class="card">
+            <h2>Авторизация администратора</h2>
+            <input type="text" id="loginUsername" placeholder="Логин" autocomplete="off">
+            <input type="password" id="loginPassword" placeholder="Пароль">
+            <button id="loginBtn">Войти</button>
+            <div id="authError" class="error"></div>
+            <hr>
+            <p>Нет аккаунта? <button id="showRegisterBtn">Зарегистрироваться</button></p>
+        </div>
+
+        <!-- Блок регистрации (скрыт по умолчанию) -->
+        <div id="registerSection" class="card hidden">
+            <h2>Регистрация администратора</h2>
+            <input type="text" id="regUsername" placeholder="Логин">
+            <input type="password" id="regPassword" placeholder="Пароль">
+            <button id="registerBtn">Зарегистрироваться</button>
+            <div id="regError" class="error"></div>
+            <hr>
+            <p>Уже есть аккаунт? <button id="showLoginBtn">Войти</button></p>
+        </div>
+
+        <!-- Основное приложение (показывается после входа) -->
+        <div id="appSection" class="hidden">
+            <div class="toolbar">
+                <span id="userGreeting"></span>
+                <button id="logoutBtn">Выйти</button>
+            </div>
+
+            <!-- Панель управления сотрудниками -->
+            <div class="card">
+                <h2>👥 Сотрудники</h2>
+                <div class="employee-form">
+                    <input type="text" id="empName" placeholder="Имя сотрудника">
+                    <input type="file" id="empPhoto" accept="image/jpeg,image/png">
+                    <button id="addEmployeeBtn">➕ Добавить</button>
+                </div>
+                <table id="employeesTable">
+                    <thead>
+                        <tr><th>ID</th><th>Имя</th><th>Дата создания</th><th>Действия</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- Просмотр посещаемости -->
+            <div class="card">
+                <h2>📅 Посещаемость</h2>
+                <div class="attendance-controls">
+                    <select id="attendanceEmployeeSelect"></select>
+                    <button id="loadAttendanceBtn">Показать</button>
+                </div>
+                <div id="attendanceResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
